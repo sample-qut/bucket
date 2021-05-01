@@ -30,4 +30,19 @@ resource "google_compute_instance" "default" {
   }
  
 }
- 
+
+resource "google_storage_bucket" "auto-expire" {
+  name          = "auto-expiring-bucket"
+  location      = "US"
+  force_destroy = true
+  project = "cft-seed-50a5"
+  lifecycle_rule {
+    condition {
+      age = 3
+    }
+    action {
+      type = "Delete"
+    }
+  }
+}
+
