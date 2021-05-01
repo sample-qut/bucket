@@ -3,8 +3,7 @@ locals {
 }
  
 provider "google" {
-  alias = "impersonate"
- 
+  alias = "impersonate" 
   scopes = [
     "https://www.googleapis.com/auth/cloud-platform",
     "https://www.googleapis.com/auth/userinfo.email",
@@ -14,8 +13,9 @@ provider "google" {
 data "google_service_account_access_token" "tf_sa_impersonation" {
   provider               = google.impersonate
   target_service_account = local.tf_sa
+  delegates              = []
   scopes                 = ["userinfo-email", "cloud-platform"]
-  lifetime               = "1200s"
+  lifetime               = "300s"
 }
  
 /******************************************
