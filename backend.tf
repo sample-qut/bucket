@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "test-qut-cvt"
+    bucket = "ex-cvt-tfs"
     prefix = "ci_cd"
   }
 }
