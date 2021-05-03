@@ -10,7 +10,7 @@ variable "project_id" {
 
 variable "name" {
   description = "The name of the bucket."
-  default     = "test"
+  default     = "es_id"
 }
 
 variable "location" {
